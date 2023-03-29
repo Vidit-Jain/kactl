@@ -7,4 +7,3 @@ set(srcs a b c d e f g h i j k l m)
 foreach(F IN LISTS srcs)
   add_executable(${F}.out ${F}.cpp)
 endforeach()
-# 611a0e

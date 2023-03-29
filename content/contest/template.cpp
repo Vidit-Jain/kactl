@@ -26,4 +26,3 @@ using vll = vector<ll>;
 
 void solve(){}
 signed main(){ fightFight; solve(); }
-// a1a656
