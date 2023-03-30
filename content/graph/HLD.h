@@ -3,13 +3,14 @@
  * Date: 2022-12-14
  * License: CC0
  * Source: Folklore
- * Description: Decomposes a tree into vertex disjoint heavy paths and light
+ * ExtDesc: Decomposes a tree into vertex disjoint heavy paths and light
  * edges such that the path from any leaf to the root contains at most log(n)
  * light edges. Code allows for templatized types and merge functions for both
  * path and subtree queries / updates. Modify Segtree to RangeUpdate tree or Lazy
  * and update query / update functions if required. VALS\_EDGES being true means 
  * that values are stored in the edges, as opposed to the nodes. All values 
  * initialized to passed array values. Root must be 0.
+ * Description: Root must be 0. 
  * Time: O((\log N)^2)
  * Status: Could use some more testing
  */
@@ -39,8 +40,7 @@ struct HLD{
         }; dfs_hld(0);
         return temp;
     }
-    HLD(vvi &adj, const vector<T> &arr, T id, F _m) : n(sz(adj)), size(n, 1), top(n), 
-                        tin(n), dep(n), par(n, -1), st(build(adj, arr), id, _m){}
+    HLD(vvi &adj, const vector<T> &arr, T id, F _m) : n(sz(adj)), size(n, 1), top(n), tin(n), dep(n), par(n, -1), st(build(adj, arr), id, _m){}
     template <class B> int process(int u, int v, B op) {
         for (; top[u] != top[v]; v = par[top[v]]) {
             if(dep[top[u]] > dep[top[v]]) swap(u, v);
@@ -54,15 +54,13 @@ struct HLD{
     T query(int u, int v){
         T ans = st.identity;
         process(u, v, [&](int l, int r){
-            ans = st.merge(ans, st.query(l, r));
-        });
+            ans = st.merge(ans, st.query(l, r)); });
         return ans;
     }
     void update(int v, T val){
         st.update(tin[v], val);
     }
     T query_subtree(int v) { // update is similar
-        return (size[v] > 1 or !VAL_EDGES) ? st.query(tin[v]+VAL_EDGES, tin[v]+size[v]) : 
-                                            st.identity; 
+        return (size[v] > 1 or !VAL_EDGES) ? st.query(tin[v]+VAL_EDGES, tin[v]+size[v]) : st.identity; 
     }
 }

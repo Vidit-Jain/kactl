@@ -7,7 +7,8 @@
  * Description: Given a simple, undirected graph with max degree $D$, computes a
  * $(D + 1)$-coloring of the edges such that no neighboring edges share a color.
  * ($D$-coloring is NP-hard, but can be done for bipartite graphs by repeated matchings of
- * max-degree nodes.)
+ * max-degree nodes.) There always exists $D$-coloring for bipartite graphs. All other graphs
+ * can be colored in either $D$ or $D+1$ colors.
  * Time: O(NM)
  * Status: stress-tested, tested on kattis:gamescheduling
  */
