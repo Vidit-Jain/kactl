@@ -6,8 +6,8 @@
  * Description: Let $G$ be a tree with depth $d$ and $k$ children. The function $P(G)$ is defined recursively as follows:
 \[
 P(G) = \begin{cases}
-    1, & \text{if } G \text{ is a single leaf,} \\
-    (x_d + P(G_1))(x_d + P(G_2)) \cdots (x_d + P(G_k)), & \text{otherwise,}
+	1, & \text{if } G \text{ is a single leaf,} \\
+	(x_d + P(G_1))(x_d + P(G_2)) \cdots (x_d + P(G_k)), & \text{otherwise,}
 \end{cases}
 \]
 where $G_1, G_2, \ldots, G_k$ are the subtrees corresponding to the children of the root of $G$, and $x_d$ is a variable. Using this definition, we obtain a multi-variable polynomial over $d$ variables of degree $l$, where $l$ is the number of leaves in the tree. Evaluating this polynomial for random variables yields a hash function with collision probability at most $l/\text{MOD}$.
@@ -19,24 +19,24 @@ where $G_1, G_2, \ldots, G_k$ are the subtrees corresponding to the children of 
 
 vector<HT> R(MAXN);
 void prec(){
-    auto rng = std::mt19937(std::random_device()());
-    for(int i=0; i < sz(R); i++) R[i] = {rng(), rng()}; //*
+	auto rng = std::mt19937(std::random_device()());
+	for(int i=0; i < sz(R); i++) R[i] = {rng(), rng()}; //*
 }
 HT hasher(vector<HT> &h, int d){
-    HT ret_hash = mint_ntuple(1);
-    for(auto &x : h) ret_hash *= (R[d] + x);
-    return ret_hash;
+	HT ret_hash = mint_ntuple(1);
+	for(auto &x : h) ret_hash *= (R[d] + x);
+	return ret_hash;
 }
 auto comp = [&](vvi &adj){
-    vector<HT> iso(n);
-    function<int(int, int)> dfs = [&](int v, int p){
-        vector<HT> c;
-        int dep = 0;
-        for(auto &to : adj[v]) if(to != p) {
-            dep = max(dep, dfs(to, v) + 1);
-            c.pb(iso[to]);
-        }        
-        return iso[v] = hasher(c, dep), dep;
-    };
-    return dfs(0, -1), iso;
+	vector<HT> iso(n);
+	function<int(int, int)> dfs = [&](int v, int p){
+		vector<HT> c;
+		int dep = 0;
+		for(auto &to : adj[v]) if(to != p) {
+			dep = max(dep, dfs(to, v) + 1);
+			c.pb(iso[to]);
+		}		 
+		return iso[v] = hasher(c, dep), dep;
+	};
+	return dfs(0, -1), iso;
 };
