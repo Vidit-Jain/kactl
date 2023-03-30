@@ -14,11 +14,11 @@
 
 template<typename T>
 struct Hstring{
-    vector<HT> h;
-    Hstring() = default;
-    Hstring(T &v) : h(sz(v)+1) {
-        for(int i=0; i < sz(v); i++) h[i+1] = h[i] * p1 + mint_ntuple(v[i]);
-    }
-    HT hash(int l, int r){ return h[r+1] - h[l] * p[r-l+1]; }
-    HT hash() { return h.back(); }
+	vector<HT> h;
+	Hstring() = default;
+	Hstring(T &v) : h(sz(v)+1) {
+		for(int i=0; i < sz(v); i++) h[i+1] = h[i] * p1 + mint_ntuple(v[i]);
+	}
+	HT hash(int l, int r){ return h[r+1] - h[l] * p[r-l+1]; }
+	HT hash() { return h.back(); }
 }; 
