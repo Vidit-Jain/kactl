@@ -3,7 +3,7 @@
  * Date: 2016-03-22
  * License: CC0
  * Source: hacKIT, NWERC 2015
- * Description: $\text{order of key}(x) \to numelements < x$, $\text{find by order}(k) \to k^{th} \text{ largest element}$ (0-indexed)
+ * Description: $\text{order of key}(x) \to \text{numelements} < x$, $\text{find by order}(k) \to k^{th} \text{ largest element}$ (0-indexed)
  * ExtDesc: O(\log N)
  */
 #pragma once
