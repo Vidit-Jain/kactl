@@ -4,40 +4,41 @@
  * License: CC0
  * Source: https://codeforces.com/blog/entry/18051
  * ExtDesc: An iterative lazy segment tree implementation. O(\log N).
- * Description: If harsh TL manually inline merge, mapping, compose and process. Segtree of vector faster than vector of segtree.
+ * Description: If harsh TL manually inline f, map, compose and process. Segtree of vector faster than vector of segtree.
+ * Usage: __attribute__((always_inline)) inline
  * Status: Needs testing.
  */
 
 template<typename T, typename L>
 struct LazySegmentTree {
     int n, h;
-    T m_id; vector<T> tree;
-    L l_id; vector<L> lazy;
+    T m_id; vector<T> t;
+    L l_id; vector<L> l;
 
-    T merge(T a, T b) { return max(a, b); }
-    T mapping(T v, L val, int len) { return v+val; }
+    T f(T a, T b) { return max(a, b); }
+    T map(T v, L val, int len) { return v+val; }
     void compose(L &cl, L &ul, int len){ cl += ul; }
 
     void apply(int v, L upd, int len){
-        tree[v] = mapping(tree[v], upd, len);
-        if(v < n) compose(lazy[v], upd, len);
+        t[v] = map(t[v], upd, len);
+        if(v < n) compose(l[v], upd, len);
     }
     LazySegmentTree(const vector<T> &a, T m_id, L l_id) : n(sz(a)), 
-            h(32-__builtin_clz(signed(n))), m_id(m_id), tree(2*n),
-            l_id(l_id), lazy(n, l_id){
-        for(int i=0; i < n; i++) tree[n+i] = a[i];
+            h(32-__builtin_clz(signed(n))), m_id(m_id), t(2*n),
+            l_id(l_id), l(n, l_id){
+        for(int i=0; i < n; i++) t[n+i] = a[i];
         for(int i=n-1; i >= 1; i--)
-            tree[i] = merge(tree[2*i], tree[2*i+1]);
+            t[i] = f(t[2*i], t[2*i+1]);
     }
     void pull(int v){
         for(int p=v>>1, k=2; p >= 1; p>>=1, k<<=1)
-            tree[p] = mapping(merge(tree[2*p], tree[2*p+1]), lazy[p], k);
+            t[p] = map(f(t[2*p], t[2*p+1]), l[p], k);
     }
     void push(int v){
         for(int lvl=h,p=(v>>lvl); lvl >= 1; lvl--,p=(v>>lvl)){
             int k = 1 << (lvl-1);
-            apply(2*p, lazy[p], k), apply(2*p+1, lazy[p], k);
-            lazy[p] = l_id;
+            apply(2*p, l[p], k), apply(2*p+1, l[p], k);
+            l[p] = l_id;
         }
     }
     template <class B> void process(int l, int r, int msk, B op){
@@ -55,7 +56,7 @@ struct LazySegmentTree {
     }
     T query(int lr, int rr){ // Does not work with commutative functions
         T ret = m_id; 
-        process(lr, rr, 0b1, [&](int v, int k){ ret = merge(ret, tree[v]); }); 
+        process(lr, rr, 0b1, [&](int v, int k){ ret = f(ret, t[v]); }); 
         return ret;
     }
 };

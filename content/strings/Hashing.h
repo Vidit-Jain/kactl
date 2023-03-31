@@ -4,8 +4,8 @@
  * License: CC0
  * Source: own work
  * Description: Methods for n-hashing a string. Provides all necessary overloads for performing arithmetic 
- * 		with n-ary tuples of varied-mod ints. Also compute $p^i$ and $invp^i$ in linear time. Only modify values
- * 		with a "// *" next to them to play with the hashes or increase precomputation length.
+ *		with n-ary tuples of varied-mod ints. Also compute $p^i$ and $invp^i$ in linear time. Only modify values
+ *		with a "// *" next to them to play with the hashes or increase precomputation length.
  * Status: stress-tested
  */
 #pragma once
@@ -24,17 +24,17 @@ constexpr int NUM_HASHES = 2; // *
 constexpr array<int, NUM_HASHES> mods = {127657753, 987654319}; // *
 template <size_t N = NUM_HASHES>
 constexpr auto mint_ntuple(const int &v) {
-    return [&]<size_t... Is>(index_sequence<Is...>) { return make_tuple(mint<mods[Is]>(v)...); }(make_index_sequence<N>{}); }
+	return [&]<size_t... Is>(index_sequence<Is...>) { return make_tuple(mint<mods[Is]>(v)...); }(make_index_sequence<N>{}); }
 
 using HT = decltype(mint_ntuple(0));
 HT p1 = {137, 277}; // *
 
 HT pp[MAXN], ipp[MAXN];
 void prec(){
-    pp[0] = ipp[0] = mint_ntuple(1);
-    HT ip1 = pp[0] / p1;
-    for(int i=1; i < MAXN; i++){
-        pp[i] = pp[i-1] * p1;
-        ipp[i] = ipp[i-1] * ip1;
-    }
+	pp[0] = ipp[0] = mint_ntuple(1);
+	HT ip1 = pp[0] / p1;
+	for(int i=1; i < MAXN; i++){
+		pp[i] = pp[i-1] * p1;
+		ipp[i] = ipp[i-1] * ip1;
+	}
 }

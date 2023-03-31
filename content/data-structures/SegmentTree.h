@@ -13,25 +13,24 @@
 
 template <typename T, typename F>
 struct Segtree{
-    int n; vector<T> tree;
-    T identity; F merge;
-    Segtree(const vector<T> &arr, T id, F _m) : n(sz(arr)), tree(2*n), identity(id), merge(_m){
-        for(int i=0; i<n; i++) tree[n+i] = arr[i];
+    int n; vector<T> t;
+    const T id; F f;
+    Segtree(const vector<T> &a, T id, F f) : n(sz(a)), t(2*n), id(id), f(f){
+        for(int i=0; i<n; i++) t[n+i] = a[i];
         for(int i=n-1; i>=1; i--) 
-            tree[i] = merge(tree[2*i], tree[2*i+1]);
+            t[i] = f(t[2*i], t[2*i+1]);
     }
     T query(int l, int r){
-        T res = identity; assert(l >= 0 and r < n and l <= r);
+        T resl(id), resr(id);
         for(l += n, r += n; l <= r; l>>=1, r>>=1){
-            if(l == r) return merge(res, tree[l]);
-            if(l&1) res = merge(res, tree[l++]);
-            if(!(r&1)) res = merge(res, tree[r--]);
+            if(l == r) { resl = f(resl, t[l]); break; }
+            if(l&1) resl = f(resl, t[l++]);
+            if(!(r&1)) resr = f(t[r--], resr);
         }
-        return res;
+        return f(resl, resr);
     }
     void update(int v, T value){
-        assert(v >= 0 and v < n);
-        for(tree[v+=n] = value; v > 1; v >>= 1)
-            tree[v>>1] = merge(tree[v], tree[v^1]);
+        for(t[v+=n] = value; v >>= 1;)
+            t[v] = f(t[2*v], t[2*v+1]);
     }
 };
