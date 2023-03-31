@@ -23,13 +23,14 @@ struct Segtree{
     T query(int l, int r){
         T resl(id), resr(id);
         for(l += n, r += n; l <= r; l>>=1, r>>=1){
-            if(l&1 or l == r) resl = f(resl, t[l++]);
+            if(l == r) { resl = f(resl, t[l]); break; }
+            if(l&1) resl = f(resl, t[l++]);
             if(!(r&1)) resr = f(t[r--], resr);
         }
         return f(resl, resr);
     }
     void update(int v, T value){
-        for(t[v+=n] = value; v > 1; v >>= 1)
-            t[v>>1] = f(t[v], t[v^1]);
+        for(t[v+=n] = value; v >>= 1;)
+            t[v] = f(t[2*v], t[2*v+1]);
     }
 };
