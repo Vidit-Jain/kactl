@@ -8,9 +8,9 @@ using ll = long long;
 using dbl = long double;
 //#define int ll
 
-using pii = pair<int, int>;
 using vi = vector<int>;
 using vvi = vector<vi>;
+using pii = pair<int, int>;
 using vii = vector<pii>;
 using vvii = vector<vii>;
 using vll = vector<ll>;
