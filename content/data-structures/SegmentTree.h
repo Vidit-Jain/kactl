@@ -4,8 +4,7 @@
  * License: CC0
  * Source: https://codeforces.com/blog/entry/18051
  * ExtDesc: modular iterative segtree. Inclusive bounds [L, R]. Pass merge function as lambda. O(\log N)
- * Usage: 
- * auto merge = [\&](int a, int b) { return min(a, b); }; 
+ * Usage: auto merge = [\&](int a, int b) {return min(a, b);}; 
  * Segtree<int, decltype(merge)> st(arr, INT_MAX, merge);
  * Status: stress-tested
  */
