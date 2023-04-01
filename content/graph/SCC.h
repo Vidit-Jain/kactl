@@ -10,7 +10,6 @@
  * in reverse topological order. comp[i] holds the component
  * index of a node (a component only has edges to components with
  * lower index). ncomps will contain the number of components.
- * Time: O(E + V)
  * Status: Bruteforce-tested for N <= 5
  */
 #pragma once
