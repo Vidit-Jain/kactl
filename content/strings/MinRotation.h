@@ -4,8 +4,7 @@
  * Source: https://github.com/stjepang/snippets/blob/master/min_rotation.cpp
  * Description: Finds the lexicographically smallest rotation of a string.
  * Time: O(N)
- * Usage:
- *  rotate(v.begin(), v.begin()+minRotation(v), v.end());
+ * Usage: rotate(v.begin(), v.begin()+minRotation(v), v.end());
  * Status: Stress-tested
  */
 #pragma once

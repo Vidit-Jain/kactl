@@ -5,7 +5,7 @@
  * Source: folklore
  * ExtDesc: Calculates a valid assignment to boolean variables a, b, c,... to a 2-SAT problem, so that an expression of the type $(a\|\|b)\&\&(!a\|\|c)\&\&(d\|\|!b)\&\&...$ becomes true, or reports that it is unsatisfiable.
  * Description: Negated variables are represented by bit-inversions (\texttt{\tilde{}x}).
- * Time: O(N+E), where N is the number of boolean variables, and E is the number of clauses.
+ * Time: O(N+E), the number of variables and clauses. 
  * Status: stress-tested
  */
 #pragma once
