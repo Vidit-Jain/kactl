@@ -8,4 +8,5 @@
  * \item Run DFS from unmatched nodes of the left side, mark visited nodes.
  * \item The MVC nodes are the visited nodes from right side, and unvisited nodes from left side.
  * \end{itemize}
+ * Note, this should be equivalent. DFS from source and only use edges with non-zero residual capacity (c > 0).
  */
