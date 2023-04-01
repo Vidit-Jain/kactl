@@ -35,7 +35,7 @@ struct DP1D {
 					if (C(k.back().ff, mid) >= C(i, mid)) high = mid;
 					else low = mid;
 				}
-				if (high != n) k.push_back({i, high});
+				if (high != n) k.pb({i, high});
 			}
 		}
 		return dp[n - 1];
