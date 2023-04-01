@@ -4,7 +4,6 @@
  * Source: CP-Algorithms
  * ExtDesc: Given $a[i] = \min_{lo(i) \le k < hi(i)}(f(i, k))$ where the (minimal) optimal $k$ increases with $i$, computes $a[i]$ for $i = L..R-1$.
  * Description: Applicable if $(A[i][j] \leq A[i][j + 1])$. Quadrangle Inequality is also sufficient $(C[a][c] + C[b][d] \leq C[a][d] + C[b][c])$
- * Time: O(kN\log N)
  * Status: tested on https://codeforces.com/contest/833/problem/B
  */
 #pragma once

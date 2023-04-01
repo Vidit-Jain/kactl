@@ -4,7 +4,6 @@
  * Source: https://codeforces.com/contest/319/submission/125522308 
  * ExtDesc: Given $a[i] = \min_{lo(i) \le k < hi(i)}(f(i, k))$ where the (minimal) optimal $k$ increases with $i$, computes $a[i]$ for $i = L..R-1$.
  * Description: Quadrangle Inequality must hold. If \texttt{dp[i] = dp[j] + C[j + 1][i]}, change \texttt{k = \{\{-1, 0\}\}}, remove \texttt{dp[0] = 0}, add condition for \texttt{i == -1} in cost function, start loop in \texttt{solve()} from $0$.
- * Time: O(N\log N)
  * Status: tested on https://codeforces.com/contest/319/problem/C 
  */
 #pragma once
