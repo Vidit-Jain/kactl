@@ -6,7 +6,6 @@
  * Description: Answer interval or tree path queries by finding an approximate TSP through the queries,
  * and moving from one query to the next by adding/removing points at the ends.
  * If values are on tree edges, change \texttt{step} to add/remove the edge $(a, c)$ and remove the initial \texttt{add} call (but keep \texttt{in}).
- * Time: O(N \sqrt Q)
  * Status: stress-tested
  */
 #pragma once

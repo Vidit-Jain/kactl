@@ -13,7 +13,6 @@
  * \texttt{lcp[i] = lcp(sa[i], sa[i-1])}, \texttt{lcp[0] = 0}.
  * The input string must not contain any zero bytes.
  * Description: \texttt{sa[i]} stores starting index of the suffix in position $i$ when sorted (\texttt{sa[0] = n}). \texttt{lcp[i] = lcp(sa[i], sa[i - 1])}, \texttt{lcp[0] = 0}. Ensure no zero bytes in string.
- * Time: O(n \log n)
  * Status: stress-tested
  */
 #pragma once
