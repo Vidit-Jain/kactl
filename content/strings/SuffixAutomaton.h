@@ -17,8 +17,8 @@ struct SA{
 	int z = 1, last = 0;
 	SA() { st[0].len = 0, st[0].link = -1; }
 	explicit SA(const string &str) {
-		SA();
-		for (auto &c: str) *this->extend(c);
+		st[0].len = 0, st[0].link = -1;
+		for (auto &c: str) this->extend(c);
 	}
 	void extend(char c) {
 		int cur = z++;
