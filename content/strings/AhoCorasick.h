@@ -40,9 +40,9 @@ struct AhoCorasick {
 		N[n].nmatches++;
 	}
 	AhoCorasick(vector<string>& pat) : N(1, -1) {
-		rep(i,0,sz(pat)) insert(pat[i], i);
 		N[0].back = sz(N);
 		N.emplace_back(0);
+		rep(i,0,sz(pat)) insert(pat[i], i);
 
 		queue<int> q;
 		for (q.push(0); !q.empty(); q.pop()) {
