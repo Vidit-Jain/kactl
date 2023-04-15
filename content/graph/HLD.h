@@ -15,6 +15,8 @@
  * Status: Could use some more testing
  */
 
+#include "../data-structures/SegmentTree.h"
+
 template <typename T, typename F, bool VAL_EDGES>
 struct HLD{
 	int n, timer = 0;
@@ -52,15 +54,15 @@ struct HLD{
 	}
 	int lca(int u, int v) { return process(u, v, [&](int,int){}); }
 	T query(int u, int v){
-		T ans = st.identity;
+		T ans = st.id;
 		process(u, v, [&](int l, int r){
-			ans = st.merge(ans, st.query(l, r)); });
+			ans = st.f(ans, st.query(l, r)); });
 		return ans;
 	}
 	void update(int v, T val){
 		st.update(tin[v], val);
 	}
 	T query_subtree(int v) { // update is similar
-		return (size[v] > 1 or !VAL_EDGES) ? st.query(tin[v]+VAL_EDGES, tin[v]+size[v]) : st.identity; 
+		return (size[v] > 1 or !VAL_EDGES) ? st.query(tin[v]+VAL_EDGES, tin[v]+size[v]) : st.id; 
 	}
 }
