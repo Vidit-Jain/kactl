@@ -8,8 +8,7 @@
  */
 #pragma once
 
-const ll mod = 1000000007; // faster if const
-
+const ll mod = 1000000007;
 ll modpow(ll b, ll e) {
 	ll ans = 1;
 	for (; e; b = b * b % mod, e /= 2)

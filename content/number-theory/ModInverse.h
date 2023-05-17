@@ -3,7 +3,8 @@
  * Date: 2016-07-24
  * License: CC0
  * Source: Russian page
- * Description: Pre-computation of modular inverses. Assumes LIM $\le$ mod and that mod is a prime.
+ * ExtDesc: Pre-computation of modular inverses. Assumes LIM $\le$ mod and that mod is a prime.
+ * Description: Assumes LIM $\le$ mod and mod is a prime.
  * Status: Works
  */
 #pragma once
