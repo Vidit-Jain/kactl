@@ -12,9 +12,9 @@
 % \Rightarrow
 % \begin{aligned}x=\dfrac{ed-bf}{ad-bc}\\y=\dfrac{af-ec}{ad-bc}\end{aligned}\]
 
-In general, given an equation $Ax = b$, the solution to a variable $x_i$ is given by
-\[x_i = \frac{\det A_i'}{\det A} \]
-where $A_i'$ is $A$ with the $i$'th column replaced by $b$.
+Given an equation $Ax = b$, 
+$x_i = \frac{\det A_i'}{\det A}$,
+$A_i'$ is $A$ with $i$'th column replaced by $b$.
 
 \section{Recurrences}
 If $a_n = c_1 a_{n-1} + \dots + c_k a_{n-k}$, and $r_1, \dots, r_k$ are distinct roots of $x^k + c_1 x^{k-1} + \dots + c_k$, there are $d_1, \dots, d_k$ s.t.
@@ -42,10 +42,9 @@ where $r=\sqrt{a^2+b^2}, \phi=\operatorname{atan2}(b,a)$.
 \section{Geometry}
 
 \subsection{Triangles}
-Side lengths: $a,b,c$\\
-Semiperimeter: $p=\dfrac{a+b+c}{2}$\\
+Side lengths: $a,b,c$, $p=\dfrac{a+b+c}{2}$\\
 Area: $A=\sqrt{p(p-a)(p-b)(p-c)}$\\
-Circumradius: $R=\dfrac{abc}{4A}$\\
+Circumradius: $R=\dfrac{abc}{4A}$,
 Inradius: $r=\dfrac{A}{p}$\\
 Length of median (divides triangle into two equal-area triangles): $m_a=\tfrac{1}{2}\sqrt{2b^2+2c^2-a^2}$\\
 Length of bisector (divides angles in two): $s_a=\sqrt{bc\left[1-\left(\dfrac{a}{b+c}\right)^2\right]}$\\
@@ -54,7 +53,7 @@ Law of cosines: $a^2=b^2+c^2-2bc\cos\alpha$\\
 Law of tangents: $\dfrac{a+b}{a-b}=\dfrac{\tan\dfrac{\alpha+\beta}{2}}{\tan\dfrac{\alpha-\beta}{2}}$\\
 
 \subsection{Quadrilaterals}
-With side lengths $a,b,c,d$, diagonals $e, f$, diagonals angle $\theta$, area $A$ and
+Side lengths $a,b,c,d$, diagonals $e, f$, diagonals angle $\theta$, area $A$ and
 magic flux $F=b^2+d^2-a^2-c^2$:
 
 \[ 4A = 2ef \cdot \sin\theta = F\tan\theta = \sqrt{4e^2f^2-F^2} \]
@@ -89,7 +88,7 @@ Integration by parts:
 	% 1 + 2 + 3 + \dots + n &= \frac{n(n+1)}{2} \\
 	% 1^2 + 2^2 + 3^2 + \dots + n^2 &= \frac{n(2n+1)(n+1)}{6} \\
 	% 1^3 + 2^3 + 3^3 + \dots + n^3 &= \frac{n^2(n+1)^2}{4} \\
-	1^4 + 2^4 + 3^4 + \dots + n^4 &= \frac{n(n+1)(2n+1)(3n^2 + 3n - 1)}{30} \\
+	1^4 + 2^4 + \dots + n^4 &= \frac{n(n+1)(2n+1)(3n^2 + 3n - 1)}{30} \\
 \end{align*}
 
 % \section{Series}
@@ -106,7 +105,7 @@ Integration by parts:
 % \[\mathbb{E}(aX+bY) = a\mathbb{E}(X)+b\mathbb{E}(Y)\]
 % For independent $X$ and $Y$, \[V(aX+bY) = a^2V(X)+b^2V(Y).\]
 
-\subsection{Discrete distributions}
+\subsection{Distributions}
 
 % \subsubsection{Binomial distribution}
 % The number of successes in $n$ independent yes/no experiments, each which yields success with probability $p$ is $\textrm{Bin}(n,p),\,n=1,2,\dots,\, 0\leq p\leq1$.
@@ -124,7 +123,7 @@ The number of events occurring in a fixed period of time $t$ if these events occ
 \[p(k)=e^{-\lambda}\frac{\lambda^k}{k!}, k=0,1,2,\dots\]
 \[\mu=\lambda,\,\sigma^2=\lambda\]
 
-\subsection{Continuous distributions}
+% \subsection{Continuous distributions}
 
 \subsubsection{Uniform distribution}
 If the probability density function is constant between $a$ and $b$ and 0 elsewhere it is $\textrm{U}(a,b),\,a<b$.
@@ -147,8 +146,8 @@ The time between events in a Poisson process is $\textrm{Exp}(\lambda),\,\lambda
 \subsubsection{Normal distribution}
 Most real random values with mean $\mu$ and variance $\sigma^2$ are well described by $\mathcal{N}(\mu,\sigma^2),\,\sigma>0$.
 \[ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \]
-If $X_1 \sim \mathcal{N}(\mu_1,\sigma_1^2)$ and $X_2 \sim \mathcal{N}(\mu_2,\sigma_2^2)$ then
-\[ aX_1 + bX_2 + c \sim \mathcal{N}(\mu_1+\mu_2+c,a^2\sigma_1^2+b^2\sigma_2^2) \]
+% If $X_1 \sim \mathcal{N}(\mu_1,\sigma_1^2)$ and $X_2 \sim \mathcal{N}(\mu_2,\sigma_2^2)$ then
+% \[ aX_1 + bX_2 + c \sim \mathcal{N}(\mu_1+\mu_2+c,a^2\sigma_1^2+b^2\sigma_2^2) \]
 
 \section{Markov chains}
 % A \emph{Markov chain} is a discrete random process with the property that the next state depends only on the current state.
