@@ -3,7 +3,7 @@
  * Date: 2015-01-31
  * License: CC0
  * Source: me
- * Description: A class for ordering angles (as represented by int points and
+ * Description: Orders angles (as represented by int points and
  *  a number of rotations around the origin). Useful for rotational sweeping.
  *  Sometimes also represents points or vectors.
  * Usage:
@@ -33,8 +33,7 @@ bool operator<(Angle a, Angle b) {
 	       make_tuple(b.t, b.half(), a.x * (ll)b.y);
 }
 
-// Given two points, this calculates the smallest angle between
-// them, i.e., the angle that covers the defined line segment.
+// Given two points, calculates smallest angle between them, the angle that covers the defined line segment.
 pair<Angle, Angle> segmentAngles(Angle a, Angle b) {
 	if (b < a) swap(a, b);
 	return (b < a.t180() ?
