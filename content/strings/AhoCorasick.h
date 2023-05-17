@@ -20,9 +20,8 @@
 #pragma once
 
 struct AhoCorasick {
-	enum {alpha = 26, first = 'A'}; // change this!
+	enum {alpha = 26, first = 'A'}; // Change 
 	struct Node {
-		// (nmatches is optional)
 		int back, next[alpha], start = -1, end = -1, nmatches = 0;
 		Node(int v) { memset(next, v, sizeof(next)); }
 	};
