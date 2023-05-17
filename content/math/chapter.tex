@@ -16,10 +16,10 @@ Given an equation $Ax = b$,
 $x_i = \frac{\det A_i'}{\det A}$,
 $A_i'$ is $A$ with $i$'th column replaced by $b$.
 
-\section{Recurrences}
-If $a_n = c_1 a_{n-1} + \dots + c_k a_{n-k}$, and $r_1, \dots, r_k$ are distinct roots of $x^k + c_1 x^{k-1} + \dots + c_k$, there are $d_1, \dots, d_k$ s.t.
-$a_n = d_1r_1^n + \dots + d_kr_k^n.$
-Non-distinct roots $r$ become polynomial factors, e.g. $a_n = (d_1n + d_2)r^n$.
+% \section{Recurrences}
+% If $a_n = c_1 a_{n-1} + \dots + c_k a_{n-k}$, and $r_1, \dots, r_k$ are distinct roots of $x^k + c_1 x^{k-1} + \dots + c_k$, there are $d_1, \dots, d_k$ s.t.
+% $a_n = d_1r_1^n + \dots + d_kr_k^n.$
+% Non-distinct roots $r$ become polynomial factors, e.g. $a_n = (d_1n + d_2)r^n$.
 
 \section{Trigonometry}
 \begin{align*}
@@ -71,25 +71,25 @@ y = r\sin\theta\sin\phi & \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2})\\
 z = r\cos\theta & \phi = \textrm{atan2}(y,x)
 \end{array}\]
 
-\section{Derivatives/Integrals}
-\begin{align*}
-	\dfrac{d}{dx}\arcsin x = \dfrac{1}{\sqrt{1-x^2}} &&& \dfrac{d}{dx}\arccos x = -\dfrac{1}{\sqrt{1-x^2}} \\
-	\dfrac{d}{dx}\tan x = 1+\tan^2 x &&& \dfrac{d}{dx}\arctan x = \dfrac{1}{1+x^2} \\
-	\int\tan ax = -\dfrac{\ln|\cos ax|}{a} &&& \int x\sin ax = \dfrac{\sin ax-ax \cos ax}{a^2} \\
-	\int e^{-x^2} = \frac{\sqrt \pi}{2} \text{erf}(x) &&& \int xe^{ax}dx = \frac{e^{ax}}{a^2}(ax-1)
-\end{align*}
+% \section{Derivatives/Integrals}
+% \begin{align*}
+% 	\dfrac{d}{dx}\arcsin x = \dfrac{1}{\sqrt{1-x^2}} &&& \dfrac{d}{dx}\arccos x = -\dfrac{1}{\sqrt{1-x^2}} \\
+% 	\dfrac{d}{dx}\tan x = 1+\tan^2 x &&& \dfrac{d}{dx}\arctan x = \dfrac{1}{1+x^2} \\
+% 	\int\tan ax = -\dfrac{\ln|\cos ax|}{a} &&& \int x\sin ax = \dfrac{\sin ax-ax \cos ax}{a^2} \\
+% 	\int e^{-x^2} = \frac{\sqrt \pi}{2} \text{erf}(x) &&& \int xe^{ax}dx = \frac{e^{ax}}{a^2}(ax-1)
+% \end{align*}
 
-Integration by parts:
-\[\int_a^bf(x)g(x)dx = [F(x)g(x)]_a^b-\int_a^bF(x)g'(x)dx\]
+% Integration by parts:
+% \[\int_a^bf(x)g(x)dx = [F(x)g(x)]_a^b-\int_a^bF(x)g'(x)dx\]
 
-\subsection{Sums}
-% \[ c^a + c^{a+1} + \dots + c^{b} = \frac{c^{b+1} - c^a}{c-1}, c \neq 1 \]
-\begin{align*}
-	% 1 + 2 + 3 + \dots + n &= \frac{n(n+1)}{2} \\
-	% 1^2 + 2^2 + 3^2 + \dots + n^2 &= \frac{n(2n+1)(n+1)}{6} \\
-	% 1^3 + 2^3 + 3^3 + \dots + n^3 &= \frac{n^2(n+1)^2}{4} \\
-	1^4 + 2^4 + \dots + n^4 &= \frac{n(n+1)(2n+1)(3n^2 + 3n - 1)}{30} \\
-\end{align*}
+% \subsection{Sums}
+% % \[ c^a + c^{a+1} + \dots + c^{b} = \frac{c^{b+1} - c^a}{c-1}, c \neq 1 \]
+% \begin{align*}
+% 	% 1 + 2 + 3 + \dots + n &= \frac{n(n+1)}{2} \\
+% 	% 1^2 + 2^2 + 3^2 + \dots + n^2 &= \frac{n(2n+1)(n+1)}{6} \\
+% 	% 1^3 + 2^3 + 3^3 + \dots + n^3 &= \frac{n^2(n+1)^2}{4} \\
+% 	1^4 + 2^4 + \dots + n^4 &= \frac{n(n+1)(2n+1)(3n^2 + 3n - 1)}{30} \\
+% \end{align*}
 
 % \section{Series}
 % % $$e^x = 1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots,\,(-\infty<x<\infty)$$
@@ -105,46 +105,46 @@ Integration by parts:
 % \[\mathbb{E}(aX+bY) = a\mathbb{E}(X)+b\mathbb{E}(Y)\]
 % For independent $X$ and $Y$, \[V(aX+bY) = a^2V(X)+b^2V(Y).\]
 
-\subsection{Distributions}
+% \subsection{Distributions}
 
-% \subsubsection{Binomial distribution}
-% The number of successes in $n$ independent yes/no experiments, each which yields success with probability $p$ is $\textrm{Bin}(n,p),\,n=1,2,\dots,\, 0\leq p\leq1$.
-% \[p(k)=\binom{n}{k}p^k(1-p)^{n-k}\]
-% \[\mu = np,\,\sigma^2=np(1-p)\]
-$\textrm{Bin}(n,p)$ is approximately $\textrm{Po}(np)$ for small $p$.
+% % \subsubsection{Binomial distribution}
+% % The number of successes in $n$ independent yes/no experiments, each which yields success with probability $p$ is $\textrm{Bin}(n,p),\,n=1,2,\dots,\, 0\leq p\leq1$.
+% % \[p(k)=\binom{n}{k}p^k(1-p)^{n-k}\]
+% % \[\mu = np,\,\sigma^2=np(1-p)\]
+% $\textrm{Bin}(n,p)$ is approximately $\textrm{Po}(np)$ for small $p$.
 
-% \subsubsection{First success distribution}
-% The number of trials needed to get the first success in independent yes/no experiments, each wich yields success with probability $p$ is $\textrm{Fs}(p),\,0\leq p\leq1$.
-% \[p(k)=p(1-p)^{k-1},\,k=1,2,\dots\]
-% \[\mu = \frac1p,\,\sigma^2=\frac{1-p}{p^2}\]
+% % \subsubsection{First success distribution}
+% % The number of trials needed to get the first success in independent yes/no experiments, each wich yields success with probability $p$ is $\textrm{Fs}(p),\,0\leq p\leq1$.
+% % \[p(k)=p(1-p)^{k-1},\,k=1,2,\dots\]
+% % \[\mu = \frac1p,\,\sigma^2=\frac{1-p}{p^2}\]
 
-\subsubsection{Poisson distribution}
-\#events occurring in time $t$ if average rate is $\kappa$ and independent of time since the last event. $\lambda = t \kappa$.
-\[p(k)=e^{-\lambda}\frac{\lambda^k}{k!}, k=0,1,2,\dots, \mu=\lambda,\,\sigma^2=\lambda\]
-%\[\mu=\lambda,\,\sigma^2=\lambda\]
+% \subsubsection{Poisson distribution}
+% \#events occurring in time $t$ if average rate is $\kappa$ and independent of time since the last event. $\lambda = t \kappa$.
+% \[p(k)=e^{-\lambda}\frac{\lambda^k}{k!}, k=0,1,2,\dots, \mu=\lambda,\,\sigma^2=\lambda\]
+% %\[\mu=\lambda,\,\sigma^2=\lambda\]
 
-% \subsection{Continuous distributions}
+% % \subsection{Continuous distributions}
 
-\subsubsection{Uniform distribution}
-Uniform distribution between $a$ and $b$.
-\[f(x) = \left\{
-\begin{array}{cl}
-\frac{1}{b-a} & a<x<b\\
-0 & \textrm{otherwise}
-\end{array}\right.\]
-\[\mu=\frac{a+b}{2},\,\sigma^2=\frac{(b-a)^2}{12}\]
+% % \subsubsection{Uniform distribution}
+% % Uniform distribution between $a$ and $b$.
+% % \[f(x) = \left\{
+% % \begin{array}{cl}
+% % \frac{1}{b-a} & a<x<b\\
+% % 0 & \textrm{otherwise}
+% % \end{array}\right.\]
+% % \[\mu=\frac{a+b}{2},\,\sigma^2=\frac{(b-a)^2}{12}\]
 
-\subsubsection{Exponential distribution}
-Time between events in Poisson process 
-\[f(x) = \left\{
-\begin{array}{cl}
-\lambda e^{-\lambda x} & x\geq0\\
-0 & x<0
-\end{array}\right. \mu=\frac{1}{\lambda},\,\sigma^2=\frac{1}{\lambda^2}\]
+% \subsubsection{Exponential distribution}
+% Time between events in Poisson process 
+% \[f(x) = \left\{
+% \begin{array}{cl}
+% \lambda e^{-\lambda x} & x\geq0\\
+% 0 & x<0
+% \end{array}\right. \mu=\frac{1}{\lambda},\,\sigma^2=\frac{1}{\lambda^2}\]
 
-\subsubsection{Normal distribution}
+% \subsubsection{Normal distribution}
 
-\[ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \]
+% \[ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \]
 % If $X_1 \sim \mathcal{N}(\mu_1,\sigma_1^2)$ and $X_2 \sim \mathcal{N}(\mu_2,\sigma_2^2)$ then
 % \[ aX_1 + bX_2 + c \sim \mathcal{N}(\mu_1+\mu_2+c,a^2\sigma_1^2+b^2\sigma_2^2) \]
 
@@ -156,17 +156,17 @@ Time between events in Poisson process
 % where $\mathbf{p}^{(0)}$ is the initial distribution.
 
 % \subsubsection{Stationary distribution}
-$\mathbf{\pi}$ is a stationary distribution if $\mathbf{\pi} = \mathbf{\pi P}$.
-If the Markov chain is \emph{irreducible} (it is possible to get to any state from any state),
+% $\mathbf{\pi}$ is a stationary distribution if $\mathbf{\pi} = \mathbf{\pi P}$.
+If the Markov chain is \emph{irreducible}, %(it is possible to get to any state from any state),
 then $\pi_i = \frac{1}{\mathbb{E}(T_i)}$ where $\mathbb{E}(T_i)$  is the expected time between two visits in state $i$.
 $\pi_j/\pi_i$ is the expected number of visits in state $j$ between two visits in state $i$.
 
 % For a connected, undirected and non-bipartite graph, where the transition probability is uniform among all neighbors, $\pi_i$ is proportional to node $i$'s degree.
 
 % \subsubsection{Ergodicity}
-A Markov chain is \emph{ergodic} if the asymptotic distribution is independent of the initial distribution.
-A finite Markov chain is ergodic iff it is irreducible and \emph{aperiodic} (i.e., the gcd of cycle lengths is 1).
-$\lim_{k\rightarrow\infty}\mathbf{P}^k = \mathbf{1}\pi$.
+% A Markov chain is \emph{ergodic} if the asymptotic distribution is independent of the initial distribution.
+% A finite Markov chain is ergodic iff it is irreducible and \emph{aperiodic} (i.e., the gcd of cycle lengths is 1).
+% $\lim_{k\rightarrow\infty}\mathbf{P}^k = \mathbf{1}\pi$.
 
 % \subsubsection{Absorption}
 A Markov chain is an A-chain if the states can be partitioned into two sets $\mathbf{A}$ and $\mathbf{G}$, such that all states in $\mathbf{A}$ are absorbing ($p_{ii}=1$), and all states in $\mathbf{G}$ leads to an absorbing state in $\mathbf{A}$.
