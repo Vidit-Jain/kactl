@@ -3,7 +3,8 @@
  * Date: 2016-09-06
  * License: CC0
  * Source: folklore
- * Description: Calculates determinant of a matrix. Destroys the matrix.
+ * ExtDesc: Calculates determinant of a matrix. Destroys the matrix.
+ * Description: Destroys matrix.
  * Time: $O(N^3)$
  * Status: somewhat tested
  */

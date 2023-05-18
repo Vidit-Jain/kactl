@@ -2,8 +2,9 @@
  * Author: Unknown
  * Date: 2014-11-27
  * Source: somewhere on github
- * Description: Calculates determinant using modular arithmetics.
+ * ExtDesc: Calculates determinant using modular arithmetics.
  * Modulos can also be removed to get a pure-integer version.
+ * Description: Calculates determinant in mod, can be removed to get integer version.
  * Time: $O(N^3)$
  * Status: bruteforce-tested for N <= 3, mod <= 7
  */

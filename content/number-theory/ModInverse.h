@@ -4,7 +4,7 @@
  * License: CC0
  * Source: Russian page
  * ExtDesc: Pre-computation of modular inverses. Assumes LIM $\le$ mod and that mod is a prime.
- * Description: Assumes LIM $\le$ mod and mod is a prime.
+ * Description: LIM $\le$ mod, mod is prime.
  * Status: Works
  */
 #pragma once
