@@ -1,10 +1,13 @@
 import sys
 import os
 
+destroy = ["IntervalContainer.h", "IntervalCover.h", "Polynomial.h", "PolyRoots.h", "LinearRecurrence.h", "Determinant.h", "IntDeterminant.h", "MatrixInverse.h", "MillerRabin.h", "Factor.h", "EdgeColoring.h", "MaximalCliques.h", "MaximumClique.h", "FenwickTree2d.h", "lineDistance.h", "SegmentDistance.h", "SegmentIntersection.h", "lineIntersection.h", "sideOf.h", "OnSegment.h", "LineProjRefl.h", "Angle.h", "CircleIntersection.h", "CircleTangents.h", "CircleLine.h", "CirclePolyIntersect.h", "circumcircle.h", "MinEncloseCircle.h", "InsidePolygon.h", "PolygonArea.h", "PolygonCenter.h", "PolygonCut.h", "HullDiameter.h", "PointInsideHull.h", "ClosestPair.h", "ManhattanMST.h", "Point.h", "ConvexHull.h"]
+
 def format_cpp_file(file_path):
     # Read the content of the C++ file
     with open(file_path, 'r') as file:
         lines = file.readlines()
+    filename = os.path.basename(file_path)
 
     # Process each line
     formatted_code = ""
@@ -18,7 +21,7 @@ def format_cpp_file(file_path):
         if not line.startswith('//') and not line.startswith("*") and '//' not in line and '/*' not in line:
             if line.endswith((';', '}', '{', '(', ')')):
                 canMutate = True
-        if canMutate:
+        if canMutate and not(filename in destroy):
             # Remove newline at the end of the line
             a = line.rstrip()
             if (curr_line_len + len(a) > max_col_width):
@@ -28,6 +31,8 @@ def format_cpp_file(file_path):
             if (curr_line_len > max_col_width) :
                 curr_line_len %= max_col_width
             formatted_code += line.rstrip() 
+        elif canMutate and filename in destroy:
+            formatted_code += line.rstrip() + ' '
         else:
             formatted_code += "\n"
             formatted_code += line.rstrip()
