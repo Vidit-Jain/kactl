@@ -16,7 +16,7 @@ def format_cpp_file(file_path):
         line = lines[i].rstrip().lstrip()
         canMutate = False
         if not line.startswith('//') and not line.startswith("*") and '//' not in line and '/*' not in line:
-            if line.endswith((';', '}', '{')):
+            if line.endswith((';', '}', '{', '(', ')')):
                 canMutate = True
         if canMutate:
             # Remove newline at the end of the line
@@ -26,7 +26,7 @@ def format_cpp_file(file_path):
                 curr_line_len = 0 
             curr_line_len += len(a)
             if (curr_line_len > max_col_width) :
-                curr_line_len -= max_col_width
+                curr_line_len %= max_col_width
             formatted_code += line.rstrip() 
         else:
             formatted_code += "\n"

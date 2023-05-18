@@ -42,11 +42,12 @@
 }
 
 \newcommand{\enablecolors}{
-	\lstset{basicstyle=\footnotesize\ttfamily\color{darkgray}\bfseries}
-	\lstset{commentstyle=\color{darkgray}\normalfont\itshape}
+  \lstset{basicstyle=\footnotesize\ttfamily\color{black}}%\bfseries}
+  \lstset{commentstyle=\footnotesize\color{gray}\ttfamily\itshape}
 	\lstset{keywordstyle=\color{mypurple}\bfseries}
 	\lstset{identifierstyle=\color{myblue}\bfseries}
 	\lstset{emphstyle=\color{myred}\bfseries}
+  \lstset{emph={ll, dbl, pii, vi, vvi, vii, vvii, vll, rep, all, sz}}
 }
 
 % Some default config
@@ -212,6 +213,13 @@
 \lstset{breakindent=0pt}
 \lstset{basicstyle=\footnotesize\ttfamily}
 \lstset{commentstyle=\normalfont\itshape}
+\enablecolors
+\lstset{
+  postbreak={%
+           \mbox{%               % Character used at the begining of a break
+             \rotatebox[y=0.9ex]{180}{\color{Green}$\boldsymbol{\Lsh\,}$}%
+           }},
+  }
 \lstset{literate={^}{\caret}{1} {~}{\tilde}{1} {\{}{\nicelbrace}{1} {\}}{\nicerbrace}{1}}
 \lstset{emptylines=*1}
 \lstset{inputencoding=utf8}
