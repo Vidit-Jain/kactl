@@ -8,6 +8,8 @@ def format_cpp_file(file_path):
 
     # Process each line
     formatted_code = ""
+    max_col_width = 36
+    curr_line_len = 0
     for i in range(len(lines)):
         # Replace tabs and multiple spaces with a single space
         lines[i] = ' '.join(lines[i].split())
@@ -18,7 +20,12 @@ def format_cpp_file(file_path):
                 canMutate = True
         if canMutate:
             # Remove newline at the end of the line
-            formatted_code += line.rstrip() + '\n'
+            a = line.strip()
+            if (curr_line_len + len(a) > max_col_width):
+                formatted_code += "\n"
+                curr_line_len = 0 
+            curr_line_len += len(a)
+            formatted_code += line.rstrip() + ' '
         else:
             formatted_code += "\n"
             formatted_code += line.rstrip()
