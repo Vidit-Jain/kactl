@@ -1,8 +1,12 @@
 /**
  * Author: Max Bennedich
  * Date: 2004-02-08
- * Description: Invert matrix $A$. Returns rank; result is stored in $A$ unless singular (rank < n).
+ * ExtDesc: matrix $A$. Returns rank; result is stored in $A$ unless singular (rank < n).
  * Can easily be extended to prime moduli; for prime powers, repeatedly
+ * set $A^{-1} = A^{-1} (2I - AA^{-1})\  (\text{mod }p^k)$ where $A^{-1}$ starts as
+ * the inverse of A mod p, and k is doubled in each step.
+ * Description: Returns rank; result is stored in $A$ unless singular (rank < n).
+ * Can be extended to prime moduli; for prime powers, repeatedly
  * set $A^{-1} = A^{-1} (2I - AA^{-1})\  (\text{mod }p^k)$ where $A^{-1}$ starts as
  * the inverse of A mod p, and k is doubled in each step.
  * Time: O(n^3)
