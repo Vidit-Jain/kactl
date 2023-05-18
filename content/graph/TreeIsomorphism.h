@@ -10,7 +10,7 @@
  * multi-variable polynomial over $d$ variables of degree $l$, where $l$ is the number of leaves in 
  * the tree. Evaluating this polynomial for random variables yields a hash function with collision 
  * probability at most $l/\text{MOD}$.
- * Time: $O(nlogn)$
+ * $O(V + E)$
  * Status: Tested on CF
  */
 

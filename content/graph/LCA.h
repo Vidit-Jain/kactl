@@ -6,8 +6,7 @@
  * ExtDesc: Data structure for computing lowest common ancestors in a tree
  * (with 0 as root). C should be an adjacency list of the tree, either directed
  * or undirected. Also supports path dist. and isAncestor queries in constant time.
- * Description: Root must be 0.
- * Time: $O(N \log N + Q)$
+ * $O(N \log N + Q)$
  * Status: stress-tested
  */
 #pragma once

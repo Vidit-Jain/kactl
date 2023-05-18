@@ -6,7 +6,7 @@
  * with id v - n. Flatten returns the linearized tree and ranges[v] contain the [L, R] range of the subtree 
  * spanned by node v. Root of the tree is in variable root.
  * Description: Nodes $v >= n$ represent edges $v - n$. Flatten gives $[L, R]$ of ETT array.
- * Time: $O(n \log |n|)$
+ * $O(n \log |n|)$
  * Status: Tested at CodeChef
  */
 #pragma once
