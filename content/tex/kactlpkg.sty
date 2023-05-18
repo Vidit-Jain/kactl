@@ -123,27 +123,33 @@
 \def\@makechapterhead#1{
 
 	\parindent \z@ \raggedright \normalfont
-		\interlinepenalty\@M
-	{\underline{\Large\bfseries #1} }
+		\interlinepenalty=0
+	{\underline{\large\bfseries #1} }
 	\ifnum \c@secnumdepth >\m@ne
-		{\Large\bfseries (\thechapter) \par\nobreak }
+		{\large\bfseries (\thechapter) \par\nobreak }
 	\fi
 	\startcontents[chapters]
 }
 
 \renewcommand\section{\@startsection {section}{1}{\z@}%
-                                   {-0.5ex \@plus -1ex \@minus -.2ex}%
-                                   {.4ex}%
+                                   % {-0.5ex \@plus -1ex \@minus -.2ex}%
+                                   % {.4ex}%
+{-0.1ex}%
+{0.1ex}%
                                    {\normalfont\normalsize\bfseries}}
 
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}
-	{1ex\@plus -1ex \@minus -.3ex}
-	{.2ex}
+	% {1ex\@plus -1ex \@minus -.3ex}
+	% {.2ex}
+{-0.1ex}%
+{0.1ex}%
 	{\normalfont\normalsize\bfseries}}
 
 \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}
-	{1ex\@plus -1ex \@minus -.3ex}
-	{1ex \@plus .2ex}
+	% {1ex\@plus -1ex \@minus -.3ex}
+	% {1ex \@plus .2ex}
+{-0.1ex}%
+{0.1ex}%
 	{\normalfont\normalsize\bfseries}}
 
 % Styles for local toc
@@ -270,7 +276,7 @@
 	\setboolean{hastime}{false}
 	\setboolean{hasmemory}{false}
 	\setboolean{hasleftcaption}{false}
-	\myneedspace{3\baselineskip}
+	% \myneedspace{3\baselineskip}
 	\penalty-100
 	{\normalsize\bfseries #2}
 	\immediate\write18{rm -f \@builddir/kactl.tmp} % Don't include old kactl.tmp on failure.

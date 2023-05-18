@@ -3,10 +3,8 @@
  * Date: 2009-03-21
  * License: CC0
  * Source:
- * Description:\\
-\begin{minipage}{75mm}
+ * Description:
 Returns the shortest distance between point p and the line segment from point s to e.
-\end{minipage}
 \begin{minipage}{15mm}
 \vspace{-10mm}
 \includegraphics[width=\textwidth]{content/geometry/SegmentDistance}
