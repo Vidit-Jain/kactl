@@ -9,8 +9,8 @@
  * Returns a list of nodes in the Eulerian path/cycle with src at both start and end, or
  * empty list if no cycle/path exists.
  * To get edge indices back, add .second to s and ret.
+ * $O(V + E)$
  * Description: Input is vii<dst, eid>. ret: vi of path
- * Time: O(V + E)
  * Status: stress-tested
  */
 #pragma once

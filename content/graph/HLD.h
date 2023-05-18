@@ -10,8 +10,7 @@
  * and update query / update functions if required. VALS\_EDGES being true means 
  * that values are stored in the edges, as opposed to the nodes. All values 
  * initialized to passed array values. Root must be 0.
- * Description: Root must be 0. 
- * Time: O((\log N)^2)
+ * $O((\log N)^2)$
  * Status: Could use some more testing
  */
 
