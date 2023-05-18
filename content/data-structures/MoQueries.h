@@ -4,7 +4,7 @@
  * License: CC0
  * Source: https://github.com/hoke-t/tamu-kactl/blob/master/content/data-structures/MoQueries.h
  * ExtDesc: Answer interval or tree path queries by finding an approximate TSP through the queries,
- * Description: If values are on tree edges, change \texttt{step} to add/remove the edge $(a, c)$ and remove the initial \texttt{add} call (but keep \texttt{in}).
+ * If values are on tree edges, change \texttt{step} to add/remove the edge $(a, c)$ and remove the initial \texttt{add} call (but keep \texttt{in}).
  * Status: stress-tested
  */
 #pragma once

@@ -18,7 +18,7 @@ def format_cpp_file(file_path):
                 canMutate = True
         if canMutate:
             # Remove newline at the end of the line
-            formatted_code += line.rstrip() + '\n'
+            formatted_code += line.rstrip() + ' '
         else:
             formatted_code += "\n"
             formatted_code += line.rstrip()

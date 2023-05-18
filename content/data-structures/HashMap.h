@@ -3,7 +3,7 @@
  * Date: 2018-07-23
  * License: CC0
  * Source: http://codeforces.com/blog/entry/60737
- * Description: 3x faster. Uses 1.5x memory.
+ * ExtDesc: 3x faster. Uses 1.5x memory.
  */
 #pragma once
 #include <ext/pb_ds/assoc_container.hpp>

@@ -4,7 +4,7 @@
  * License: CC0
  * Source: https://codeforces.com/blog/entry/18051
  * ExtDesc: An iterative lazy segment tree implementation. O(\log N).
- * Description: If harsh TL manually inline f, map, compose and process. Segtree of vector faster than vector of segtree.
+ * If harsh TL manually inline f, map, compose and process. Segtree of vector faster than vector of segtree.
  * Usage: __attribute__((always_inline)) inline
  * Status: Needs testing.
  */
