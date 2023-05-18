@@ -53,7 +53,7 @@
 	% 	\[ \sum_{i=m}^{\infty} f(i) = \int_m^\infty f(x) dx - \sum_{k=1}^\infty \frac{B_k}{k!}f^{(k-1)}(m) \]
 	% 	\[ \approx \int_{m}^\infty f(x)dx + \frac{f(m)}{2} - \frac{f'(m)}{12} + \frac{f'''(m)}{720} + O(f^{(5)}(m)) \]
 	% 	\normalsize
-	\subsection{Stirling numbers (first kind)}
+	\subsection{Stirling numbers (1)}
 		\# permutations on $n$ items with $k$ cycles.
 		% \begin{align*}
 		% 	&c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k),\ c(0,0) = 1 \\
@@ -72,7 +72,7 @@
 		$E_{n,0} = E_{n,n-1} = 1$
 		$E_{n,k} = \sum_{j=0}^k(-1)^j\binom{n+1}{j}(k+1-j)^n$
 
-	\subsection{Stirling numbers (second kind)}
+	\subsection{Stirling numbers (2)}
 		Partitions of $n$ distinct elements into exactly $k$ groups.
 		$S_{n,k} = S_{n-1,k-1} + k S_{n-1,k}$
 		$S_{n,1} = S_{n,n} = 1$
