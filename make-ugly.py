@@ -20,12 +20,14 @@ def format_cpp_file(file_path):
                 canMutate = True
         if canMutate:
             # Remove newline at the end of the line
-            a = line.strip()
+            a = line.rstrip()
             if (curr_line_len + len(a) > max_col_width):
                 formatted_code += "\n"
                 curr_line_len = 0 
             curr_line_len += len(a)
-            formatted_code += line.rstrip() + ' '
+            if (curr_line_len > max_col_width) :
+                curr_line_len -= max_col_width
+            formatted_code += line.rstrip() 
         else:
             formatted_code += "\n"
             formatted_code += line.rstrip()
