@@ -4,11 +4,13 @@
  * License: CC0
  * Source: https://en.wikipedia.org/wiki/Misra_%26_Gries_edge_coloring_algorithm
  * https://codeforces.com/blog/entry/75431 for the note about bipartite graphs.
- * Description: Given a simple, undirected graph with max degree $D$, computes a
+ * ExtDesc: Given a simple, undirected graph with max degree $D$, computes a
  * $(D + 1)$-coloring of the edges such that no neighboring edges share a color.
  * ($D$-coloring is NP-hard, but can be done for bipartite graphs by repeated matchings of
  * max-degree nodes.) There always exists $D$-coloring for bipartite graphs. All other graphs
  * can be colored in either $D$ or $D+1$ colors.
+ * Description: Compute $D+1$ edge coloring for max-degree $D$ graphs (always exists). $D$
+ * coloring always exists for bipartite graphs. 
  * Time: O(NM)
  * Status: stress-tested, tested on kattis:gamescheduling
  */

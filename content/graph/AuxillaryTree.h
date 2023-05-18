@@ -7,7 +7,6 @@
  * pairwise LCA's and compressing edges.
  * Returns the root to the virtual tree stored in the class object's adj list. Tree is cleared for each query.
  * $O(|S| \log |S|)$
- * Description: Returns root to vtree. Auto-cleared per query. $O(|S| \log |S|)$
  * Status: Tested at CodeForces
  */
 #pragma once

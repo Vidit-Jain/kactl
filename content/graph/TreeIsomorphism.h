@@ -3,7 +3,13 @@
  * Date: 2023-03-30
  * License: CC0
  * Source: http://rng-58.blogspot.com/2017/02/hashing-and-probability-of-collision.html
- * Description: Let $G$ be a tree with depth $d$ and $k$ children. The function $P(G)$ is defined recursively as $P(G) = 1$ if $G$ is a single leaf, otherwise $P(G) = (x_d + P(G_1))(x_d + P(G_2)) \cdots (x_d + P(G_k))$, where $G_1, G_2, \ldots, G_k$ are the subtrees corresponding to the children of the root of $G$, and $x_d$ is a variable. Using this definition, we obtain a multi-variable polynomial over $d$ variables of degree $l$, where $l$ is the number of leaves in the tree. Evaluating this polynomial for random variables yields a hash function with collision probability at most $l/\text{MOD}$.
+ * ExtDesc: Let $G$ be a tree with depth $d$ and $k$ children. The function $P(G)$ is defined 
+ * recursively as $P(G) = 1$ if $G$ is a single leaf, otherwise $P(G) = (x_d + P(G_1))(x_d + P(G_2)) 
+ * \cdots (x_d + P(G_k))$, where $G_1, G_2, \ldots, G_k$ are the subtrees corresponding to the 
+ * children of the root of $G$, and $x_d$ is a variable. Using this definition, we obtain a 
+ * multi-variable polynomial over $d$ variables of degree $l$, where $l$ is the number of leaves in 
+ * the tree. Evaluating this polynomial for random variables yields a hash function with collision 
+ * probability at most $l/\text{MOD}$.
  * Time: $O(nlogn)$
  * Status: Tested on CF
  */
