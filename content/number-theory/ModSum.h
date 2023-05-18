@@ -3,9 +3,7 @@
  * Date: 2015-06-23
  * License: CC0
  * Source: own work
- * Description: Sums of mod'ed arithmetic progressions.
- *
- * $\sum_{i=0}^{\mathrm{to}-1}{(ki+c) \% m}$.
+ * Description: Computes $\sum_{i=0}^{\mathrm{to}-1}{(ki+c) \% m}$.
  * \texttt{divsum} is similar but for floored division.
  * ExtDesc: Sums of mod'ed arithmetic progressions.
  *
