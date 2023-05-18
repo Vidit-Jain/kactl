@@ -14,8 +14,9 @@
 struct RollbackUF {
 	vi e; vii st;
 	RollbackUF(int n) : e(n, -1) {}
-	int size(int x) { return -e[find(x)]; }
-	int find(int x) { return e[x] < 0 ? x : find(e[x]); }
+	int size(int x) { return -e[parent(x)]; }
+	int parent(int x) { return e[x] < 0 ? x : parent(e[x]); }
+	int operator[](int i){ return parent(i); }
 	int time() { return sz(st); }
 	void rollback(int t) {
 		for (int i = time(); i --> t;)
@@ -23,11 +24,10 @@ struct RollbackUF {
 		st.resize(t);
 	}
 	bool join(int a, int b) {
-		a = find(a), b = find(b);
+		a = parent(a), b = parent(b);
 		if (a == b) return false;
 		if (e[a] > e[b]) swap(a, b);
-		st.pb({a, e[a]});
-		st.pb({b, e[b]});
+		st.pb({a, e[a]}); st.pb({b, e[b]});
 		e[a] += e[b]; e[b] = a;
 		return true;
 	}
