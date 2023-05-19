@@ -3,7 +3,7 @@
  * Date: 2023-03-10
  * License: CC0
  * Source: own work
- * Description: Methods for n-hashing a string. Provides all necessary overloads for performing arithmetic 
+ * ExtDesc: Methods for n-hashing a string. Provides all necessary overloads for performing arithmetic 
  *		with n-ary tuples of varied-mod ints. Also compute $p^i$ and $invp^i$ in linear time. Only modify values
  *		with a "// *" next to them to play with the hashes or increase precomputation length.
  * Status: stress-tested

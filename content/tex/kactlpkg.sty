@@ -229,8 +229,8 @@
 \lstdefinelanguage{raw}{} % Raw language, no keywords.
 \lstdefinelanguage{rawhash}{} % Raw language, but should be hashed
 
-\setlength{\columnseprule}{0.5pt} % Multicol separation line with
-\setlength{\columnsep}{10pt} % Multicol separation margin
+\setlength{\columnseprule}{0.1pt} % Multicol separation line with
+\setlength{\columnsep}{3pt} % Multicol separation margin
 \setcounter{tocdepth}{1} % Table of contents depth
 
 \pdfsuppresswarningpagegroup=1
@@ -371,7 +371,7 @@
 }
 
 \long\def\@makecaption#1#2{
-	\vspace{-3pt}
+	\vspace{-10pt}
 	\ifthenelse{\boolean{hasdescription}}{\codeheader{Description}{\@defdescription}}{}
 	\ifthenelse{\boolean{hasusage}}{\codeheadersmall{Usage}{\@defusage}}{}
 	\ifthenelse{\boolean{hasmemory}}{\codeheadersmall{Memory}{\@defmemory}}{}
