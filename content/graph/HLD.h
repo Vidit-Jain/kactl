@@ -62,6 +62,6 @@ struct HLD{
 		st.update(tin[v], val);
 	}
 	T query_subtree(int v) { // update is similar
-		return (size[v] > 1 or !VAL_EDGES) ? st.query(tin[v]+VAL_EDGES, tin[v]+size[v]) : st.id; 
+		return (size[v] > 1 or !VAL_EDGES) ? st.query(tin[v]+VAL_EDGES, tin[v]+size[v]-1) : st.id; 
 	}
 }
