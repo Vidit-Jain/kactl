@@ -20,7 +20,7 @@ struct LazySegtree {
     T map(T v, L val, int len) { return v+val; }
     void compose(L &cl, L &ul, int len){ cl += ul; }
 
-    LazySegtree(const vector<T> &a, T id, L l_id) : n(bc(sz(a))), id(id), l_id(l_id), t(2*n), l(2*n){
+    LazySegtree(const vector<T> &a, T id, L l_id) : n(bc(sz(a))), id(id), l_id(l_id), t(2*n,id), l(2*n,l_id){
         for (int i = 0; i < sz(a); i++) t[i + n] = a[i]; 
         for (int i = n - 1; i >= 1; i--) t[i] = f(t[2 * i], t[2 * i + 1]);
     }
