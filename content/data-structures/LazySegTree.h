@@ -47,6 +47,6 @@ struct LazySegtree {
     }
 
     void update(int ul, int ur, L v) { process<true>(1, 0, n-1, ul, ur, v);}
-    T query(int ql, int qr) { return process<false>(1, 0, n-1, ql, qr, -1);}
+    T query(int ql, int qr) { return process<false>(1, 0, n-1, ql, qr, L{});}
 };
 
