@@ -32,7 +32,8 @@ struct LazySegtree {
         apply(2*v, l[v], len/2); apply(2*v+1, l[v], len/2);
         l[v] = l_id;
     }
-    T query(int node, int l, int r, int ql, int qr, int upd, L v) {
+	template<bool upd>
+    T process(int node, int l, int r, int ql, int qr, L v) {
         if (r < ql or qr < l) return id;
         if (ql <= l and r <= qr) {
             if (upd) apply(node, v, r-l+1);
@@ -40,16 +41,12 @@ struct LazySegtree {
         }
         int m = (l+r)>>1; 
         push(node, r-l+1);
-        if (upd) {
-            query(2*node, l, m, ql, qr, upd, v);
-            query(2*node+1, m+1, r, ql, qr, upd, v);
-            t[node] = f(t[2*node], t[2*node+1]);
-            return T{};
-        }
-        else
-            return f(query(2*node, l, m, ql, qr, upd, v), query(2*node+1, m+1, r, ql, qr, upd, v));
+		auto a = process<upd>(2*node, l, m, ql, qr, v);
+		auto b = process<upd>(2*node+1, m+1, r, ql, qr, v);
+		return upd ? t[node] = f(t[2 * node], t[2 * node + 1]) : f(a, b);
     }
 
-    void update(int ul, int ur, L v) { query(1, 0, n-1, ul, ur, 1, v);}
-    T query(int ql, int qr) { return query(1, 0, n-1, ql, qr, 0, -1);}
+    void update(int ul, int ur, L v) { process<true>(1, 0, n-1, ul, ur, v);}
+    T query(int ql, int qr) { return process<false>(1, 0, n-1, ql, qr, -1);}
 };
+
