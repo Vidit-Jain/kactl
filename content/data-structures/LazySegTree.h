@@ -18,8 +18,8 @@ struct LazySegtree {
     int bc(int n) { return (n == 1) ? 1 : (1 << (32 - __builtin_clz(n-1))); };
 	F f; M map; C compose;
 
-    LazySegtree(const vector<T> &a, T id, L l_id, F f, M map, C compose) : n(bc(sz(a))), id(id), l_id(l_id), t(2*n,id), l(2*n,l_id), f(f), map(map), compose(compose){
-        for (int i = 0; i < sz(a); i++) t[i+n] = a[i]; 
+    LazySegtree(const vector<T> &a, T id, L l_id, F f, M map, C compose) : n(bc(sz(a))), id(id), l_id(l_id), t(2*n,id), l(n,l_id), f(f), map(map), compose(compose){
+		copy(all(a), t.begin() + n);
         for (int i = n - 1; i >= 1; i--) t[i] = f(t[2*i], t[2*i+1]);
     }
  
@@ -43,7 +43,7 @@ struct LazySegtree {
         push(node, r-l+1);
 		auto a = process<upd>(2*node, l, m, ql, qr, v);
 		auto b = process<upd>(2*node+1, m+1, r, ql, qr, v);
-		return upd ? t[node] = f(t[2 * node], t[2 * node + 1]) : f(a, b);
+		return upd ? t[node] = f(t[2*node], t[2*node+1]) : f(a, b);
     }
 
     void update(int ul, int ur, L v) { process<true>(1, 0, n-1, ul, ur, v);}
