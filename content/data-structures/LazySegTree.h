@@ -33,16 +33,16 @@ struct LazySegtree {
         l[v] = l_id;
     }
     template<bool upd>
-    T process(int node, int l, int r, int ql, int qr, L v) {
-        if (r < ql or qr < l) return id;
-        if (ql <= l and r <= qr) {
-            if (upd) apply(node, v, r-l+1);
+    T process(int node, int nl, int nr, int ql, int qr, L v) {
+        if (nr < ql or qr < nl) return id;
+        if (ql <= nl and nr <= qr) {
+            if (upd) apply(node, v, nr-nl+1);
             return t[node];
         }
-        int m = (l+r)>>1; 
-        push(node, r-l+1);
-        auto a = process<upd>(2*node, l, m, ql, qr, v);
-        auto b = process<upd>(2*node+1, m+1, r, ql, qr, v);
+        int m = (nl+nr)>>1;
+        if (l[node] != l_id) push(node, nr-nl+1);
+        auto a = process<upd>(2*node, nl, m, ql, qr, v);
+        auto b = process<upd>(2*node+1, m+1, nr, ql, qr, v);
         return upd ? t[node] = f(t[2*node], t[2*node+1]) : f(a, b);
     }
 
