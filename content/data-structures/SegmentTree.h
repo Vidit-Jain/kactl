@@ -15,7 +15,7 @@ struct Segtree{
 	int n; vector<T> t;
 	const T id; F f;
 	Segtree(const vector<T> &a, T id, F f) : n(sz(a)), t(2*n), id(id), f(f){
-		for(int i=0; i<n; i++) t[n+i] = a[i];
+		copy(all(a), t.begin() + n);
 		for(int i=n-1; i>=1; i--) 
 			t[i] = f(t[2*i], t[2*i+1]);
 	}
