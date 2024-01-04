@@ -16,25 +16,18 @@ struct TwoSat {
 	vi values; // 0 = false, 1 = true
 
 	TwoSat(int n = 0) : N(n), gr(2*n) {}
-	int add_var() { // (optional)
-		gr.emplace_back();
-		gr.emplace_back();
-		return N++;
-	}
 	void add_or(int f, int j) {
 		f = max(2*f, -1-2*f);
 		j = max(2*j, -1-2*j);
 		gr[f].pb(j^1);
 		gr[j].pb(f^1);
 	}
-	void add_equiv(int f, int j) { add_or(f, ~j), add_or(~f, j); }
-	void add_xor(int f, int j) { add_or(f, j), add_or(~f, ~j); }
-	void add_set(int x) { add_or(x, x); }
 	void add_max_one(const vi& li) { // (optional)
 		if (sz(li) <= 1) return;
 		int cur = ~li[0];
 		rep(i,2,sz(li)) {
-			int next = add_var();
+			gr.insert(gr.end(), 2, vi());
+			int next = N++;
 			add_or(cur, ~li[i]);
 			add_or(cur, next);
 			add_or(~li[i], next);
