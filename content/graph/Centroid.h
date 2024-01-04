@@ -1,70 +1,29 @@
 /**
  * Author: A Kishore Kumar
- * Date: 2023-03-30
- * Source: https://ideone.com/hCUME3
- * ExtDesc: Centroid decomposition template, adj is adjacency list of global edge indices
+ * Date: 2023-12-30
+ * Source: https://codeforces.com/blog/entry/114287
+ * ExtDesc: Centroid decomposition template. Use lambda f as [&](vvi &adj, int centroid, int subsize, int clevel)
  */
 
-struct Edge{ int u, v, deleted; };
-// ------------------------------ Centroid Code ------------------------------
-vi size(n), level(n); // aux stuff
-vvi pre(21, vi(n)); // f(c_level, node)
-vi cpar(n, -1); // centroid tree representation
-auto g = [&](Edge &e, int v) { return v ^ e.u ^ e.v; };
-
-auto add_centroid_edge = [&](int p, int c){
-    cpar[c] = p;
-};
-
-function<void(int,int,int)> preprocess = [&](int v, int p, int level){
-    for(auto &eid:adj[v]){
-        auto &e = edges[eid];
-        int to = g(e, v);
-        if(e.deleted or to == p) continue;
-        preprocess(to, v, level);
-    }
-};
-
-function<int(int, int)> decompose = [&](int v, int p){
-    // 1 - Compute new subtree sizes
-    function<void(int, int)> subtree_comp = [&](int v, int p){
-        size[v] = 1;
-        for(auto &eid : adj[v]){
-            auto &e = edges[eid];
-            int to = g(e, v);
-            if(e.deleted or to == p) continue;
-            subtree_comp(to, v);
-            size[v] += size[to];
+template<typename F>
+void decompose(const vvi &adj, const F &f){
+    int n = sz(adj);
+    vi sub(n, 1), p(n, -1), ord(n), used(n);
+    for(int i=0, t=0, v=ord[i]; i < n; v=ord[++i])
+        for(auto &to : adj[v]) if(to != p[v]) p[to] = v, ord[++t] = to;
+    for(int i=n-1; i > 0; i--) sub[p[ord[i]]] += sub[ord[i]];
+    vvi ctree(n);
+    function<void(int,int)> dfs = [&](int c, int level){
+        int size = sub[c], pr = -1;
+        while(exchange(pr, c) != c)
+            for(auto &to : adj[c]) if(!used[to] and 2*sub[to] > size)
+                sub[c] -= sub[to], sub[to] = size, c = to;
+        used[c] = true;
+        for(auto &to : adj[c]) if(!used[to]) {
+            dfs(to, level+1);
+            ctree[c].pb(to); ctree[to].pb(c);
         }
+        f(ctree, c, size, level);
     };
-    subtree_comp(v, -1);
-
-    // 2 - Identify subtree centroid
-    function<int(int, int)> get_centroid = [&](int u, int p){
-        for(auto &eid : adj[u]){
-            auto &e = edges[eid];
-            int to = g(e, u);
-            if(e.deleted or to == p) continue;
-            if(size[to] > size[v]/2) return get_centroid(to, u);
-        }
-        return u;
-    };
-    int centroid = get_centroid(v, -1);
-    if(p != -1) level[centroid] = level[p] + 1;
-
-    // 3 - Compute f(centroid, u) \forall u \in st(centroid)
-    preprocess(centroid, -1, level[centroid]);
-
-    // 4 - Build the rest of the tree
-    for(auto &eid : adj[centroid]){
-        auto &e = edges[eid];
-        int to = g(e, centroid);
-        if(e.deleted) continue;
-        e.deleted = true;
-        int c = decompose(to, centroid);
-        add_centroid_edge(centroid, c);
-    }
-    return centroid;
+    dfs(0, 0);
 };
-// ------------------------------ Centroid Code ------------------------------
-int root = decompose(0, -1);
