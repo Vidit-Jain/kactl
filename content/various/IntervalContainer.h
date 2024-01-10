@@ -3,7 +3,7 @@
  * License: CC0
  * Description: Add and remove intervals from a set of disjoint intervals.
  * Will merge the added interval with any overlapping intervals in the set when adding.
- * Intervals are [inclusive, exclusive).
+ * Intervals are [a, b).
  * Time: O(\log N)
  * Status: stress-tested
  */

@@ -25,14 +25,14 @@ struct mint {
 		for(; b; a *= a, b /= 2)  if(b&1) res *= a;
 		return res;
 	}
-	friend mint operator+(const mint &a, const mint &b) { return mint(a) += b; }
-	friend mint operator-(const mint &a, const mint &b) { return mint(a) -= b; }
-	friend mint operator*(const mint &a, const mint &b) { return mint(a) *= b; }
-	friend mint operator/(const mint &a, const mint &b) { return mint(a) /= b; }
-	friend bool operator==(const mint &a, const mint &b) { return a.val == b.val; }
-	friend bool operator!=(const mint &a, const mint &b) { return a.val != b.val; }
-	friend bool operator<(const mint &a, const mint &b) { return a.val < b.val; }
-	friend ostream& operator<<(ostream &os, const mint &a) { return os << a.val; }
+	friend mint operator+(const mint &a, const mint &b) {return mint(a) += b;}
+	friend mint operator-(const mint &a, const mint &b) {return mint(a) -= b;}
+	friend mint operator*(const mint &a, const mint &b) {return mint(a) *= b;}
+	friend mint operator/(const mint &a, const mint &b) {return mint(a) /= b;}
+	friend bool operator==(const mint &a, const mint &b) {return a.val == b.val;}
+	friend bool operator!=(const mint &a, const mint &b) {return a.val != b.val;}
+	friend bool operator<(const mint &a, const mint &b) {return a.val < b.val;}
+	friend ostream& operator<<(ostream &os, const mint &a) {return os << a.val;}
 	int val;
 };
 using Mint = mint<MOD>;
