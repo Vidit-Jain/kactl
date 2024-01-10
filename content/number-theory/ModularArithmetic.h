@@ -3,8 +3,7 @@
  * Date: 2023-03-08
  * License: CC0
  * Source: folklore
- * Description: Operators for modular arithmetic. inv() works for any coprime mod. If mod is 
- *			prime, can make it faster by using fermats. 
+ * Description: inv() works for any coprime mod. If mod is prime, can make it faster by using fermats. 
  */
 #pragma once
 
