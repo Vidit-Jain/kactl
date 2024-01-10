@@ -7,7 +7,6 @@
  *  To obtain the actual flow, look at positive values only.
  * Description: Approximately $O(E^2)$
  * Status: Tested on kattis:mincostmaxflow, stress-tested against another implementation
- * Time: Approximately O(E^2)
  */
 #pragma once
 
